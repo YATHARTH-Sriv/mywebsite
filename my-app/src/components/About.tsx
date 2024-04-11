@@ -3,6 +3,7 @@
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import Link from "next/link";
+import Image from 'next/image'
 
 
 import { BackgroundBeams } from "../components/ui/background-beams";
@@ -31,7 +32,7 @@ export function About() {
           I am a Full Stack Developer deep diving into web development, currently working with Nextjs,Reactjs,ExpressJs,MongoDB,Tailwind,Shadcn UI and blockchain. Building new stuff for the world always exictes me.Looking forward for opportunities so let's grab a coffee and have a meet 
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
-          <img
+          <Image
             src="https://avatars.githubusercontent.com/u/126802444?v=4"
             height="500"
             width="500"

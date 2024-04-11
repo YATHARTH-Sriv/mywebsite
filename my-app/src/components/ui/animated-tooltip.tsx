@@ -7,6 +7,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import Image from 'next/image'
 
 export const AnimatedTooltip = ({
   items,
@@ -74,7 +75,7 @@ export const AnimatedTooltip = ({
               <div className="text-white text-xs">{item.designation}</div>
             </motion.div>
           )}
-          <img
+          <Image
             onMouseMove={handleMouseMove}
             height={100}
             width={100}
