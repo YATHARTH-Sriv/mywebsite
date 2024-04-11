@@ -16,7 +16,7 @@ export function Hero() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl "
       >
         <p className=" text-16xl">Hi I am Yatharth Srivastava</p><br/><p className=" text-3xl ">A Full Stack Developer </p>
       </motion.h1>
