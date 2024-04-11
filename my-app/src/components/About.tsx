@@ -4,15 +4,7 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import Link from "next/link";
 import Image from 'next/image'
-
-
 import { BackgroundBeams } from "../components/ui/background-beams";
-
-
-
-
-
-
 export function About() {
   return (
     <div id="about-me">
@@ -22,7 +14,7 @@ export function About() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          About-Me
+          About Me
         </CardItem>
         <CardItem
           as="p"
