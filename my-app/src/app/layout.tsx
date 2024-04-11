@@ -15,7 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark bg-black">
+    <html lang="en" className="dark bg-black" >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       <body className={inter.className}>{children}</body>
     </html>
   );
