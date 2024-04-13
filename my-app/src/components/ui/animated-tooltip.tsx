@@ -9,6 +9,12 @@ import {
   useSpring,
 } from "framer-motion";
 
+interface JSX {
+  IntrinsicElements: {
+    div: any;
+  };
+}
+
 export const AnimatedTooltip = ({
   items,
 }: {
