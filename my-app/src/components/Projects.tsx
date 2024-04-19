@@ -5,6 +5,16 @@ import Link from "next/link";
 
 const content = [
   {
+    title: "Music School",
+    description:
+      " A academy website where users can sign up and select courses which they want to learn , with NextJS Auth and appwrite used for database it looks great and great ui ",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,#FFA500,#FFD700)] flex items-center justify-center text-white">
+        <Link href={"https://yatharthacademy.vercel.app/"}>Todo</Link>
+      </div>
+    ),
+  },
+  {
     title: "Blog-App ",
     description:
       "A blog app where users can signup , login to see all posts done by other users also add thier own posts update or delete it. with concepts like react hook form and real time text editors it provides various functionalities ",
