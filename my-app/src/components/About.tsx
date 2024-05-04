@@ -19,14 +19,14 @@ export function About() {
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  w-auto  h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
-          className="text-xl md:w-fit sm:w-fit font-bold text-neutral-600 dark:text-white"
+          className="text-xl md:w-fit sm:w-fit lg:w-fit  font-bold text-neutral-600 dark:text-white"
         >
           About Me
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
-          className="text-neutral-500 text-lg max-w-xl mt-2 dark:text-neutral-300"
+          className="text-neutral-500 text-lg  md:w-fit sm:w-fit lg:w-fit max-w-xl mt-2 dark:text-neutral-300"
         >
           I am a Full Stack Developer deep diving into web development, currently working with Nextjs,Reactjs,ExpressJs,MongoDB,Tailwind,Shadcn UI and blockchain. Building new stuff for the world always excites me.Looking forward for opportunities so let's grab a coffee and have a meet 
         </CardItem>
