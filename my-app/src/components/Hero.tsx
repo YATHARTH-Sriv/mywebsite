@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "./ui/lamp";
 import { AnimatedTooltipPreview } from "./Skills";
+import { HeroHighlight } from "./ui/hero-highlight";
 
 export function Hero() {
   return (

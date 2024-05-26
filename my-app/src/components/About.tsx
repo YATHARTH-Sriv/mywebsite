@@ -28,7 +28,7 @@ export function About() {
           translateZ="60"
           className="text-neutral-500 text-lg  md:w-fit sm:w-fit lg:w-fit max-w-xl mt-2 dark:text-neutral-300"
         >
-          I am a Full Stack Developer deep diving into web development, currently working with Nextjs,Reactjs,ExpressJs,MongoDB,Tailwind,Shadcn UI and blockchain. Building new stuff for the world always excites me.Looking forward for opportunities so let's grab a coffee and have a meet 
+          I am a Full Stack Developer deep diving into web development also interested in Blockchain and Web3.0, Building new stuff always excites me.Looking forward for opportunities, so let's grab a coffee and have a meet 
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
