@@ -18,8 +18,8 @@ export const projects = [
   {
     title: "Blog-App",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://yatharth-blogapp.vercel.app/",
+      "A Blog app where users can share thier ideas through blogs with all CRUD operations also uplaod images being saved by cloudinary ",
+    link: "https://yatharth-blog-iota.vercel.app/",
   },
   {
     title: "Music School",
