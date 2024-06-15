@@ -16,6 +16,12 @@ export const projects = [
     link: "https://yatharth-twitter.vercel.app/",
   },
   {
+    title: "Feedback-App",
+    description:
+      "A feedback app with authentication handled with next-authjs also comes with ai integration using OPENAI chatgpt-3.5 to suggest messages for the feedback ",
+    link: "https://feedback-app-yatharth.vercel.app/",
+  },
+  {
     title: "Blog-App",
     description:
       "A Blog app where users can share thier ideas through blogs with all CRUD operations also uplaod images being saved by cloudinary ",
