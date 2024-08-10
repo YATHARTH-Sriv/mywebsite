@@ -10,22 +10,28 @@ export function Projects() {
 }
 export const projects = [
   {
-    title: "Social Media(Twitter)",
-    description:
-      "A Social Media App where users can share their opinions and photos with each other just like twitter this uses AWS S3 bucket for image storage  ",
-    link: "https://yatharth-twitter.vercel.app/",
-  },
-  {
     title: "Feedback-App",
     description:
       "A feedback app with authentication handled with next-authjs also comes with ai integration using OPENAI chatgpt-3.5 to suggest messages for the feedback ",
     link: "https://feedback-app-yatharth.vercel.app/",
   },
   {
+    title: "LearnPDF-SAAS",
+    description:
+      "Built a SAAS project which lets users learn , understand and ask questions related to any pdf. In this project I learnt about concepts of Retrieval Augmented Generation(RAG), Embeddings and vectors",
+    link: "https://github.com/YATHARTH-Sriv/learnpdfSAAS",
+  },
+  {
+    title: "Social Media(Twitter)",
+    description:
+      "A Social Media App where users can share their opinions and photos with each other just like twitter this uses AWS S3 bucket for image storage  ",
+    link: "https://github.com/YATHARTH-Sriv/twitter",
+  },
+  {
     title: "Blog-App",
     description:
       "A Blog app where users can share thier ideas through blogs with all CRUD operations also uplaod images being saved by cloudinary ",
-    link: "https://yatharth-blog-iota.vercel.app/",
+    link: "https://github.com/YATHARTH-Sriv/myblog",
   },
   {
     title: "Music School",
