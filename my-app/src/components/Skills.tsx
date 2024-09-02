@@ -36,6 +36,12 @@ export function AnimatedTooltipPreview() {
       ),
     },
     {
+      title: "MongoDB",
+      icon: (
+        <IconBrandMongodb className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+    },
+    {
       title: "JavaScript",
       icon: (
         <IconBrandJavascript className="h-full w-full text-neutral-500 dark:text-neutral-300"  />
@@ -45,13 +51,6 @@ export function AnimatedTooltipPreview() {
       title: "Github",
       icon: (
         <IconBrandGithubFilled className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-    },
-
-    {
-      title: "MongoDB",
-      icon: (
-        <IconBrandMongodb className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
     },
     {
