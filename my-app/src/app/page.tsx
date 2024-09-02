@@ -11,9 +11,6 @@ export default function Home() {
   return (
     <>
     <Navbar/>
-    <br></br>
-    <br></br>
-    <br></br>
     <Hero/>
     <About/>
     <Projects/>

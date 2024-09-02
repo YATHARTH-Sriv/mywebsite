@@ -7,9 +7,9 @@ import React from 'react'
 
 function Socials() {
   return (
-    <div id="socials" >
-      <h1 className=" flex flex-row items-center justify-center mb-10 w-full text-4xl text-white p-4">Connect With Me</h1>
-        <ul className=' flex items-center justify-center mb-10'>
+    <div className=" bg-black" id="socials" >
+      <h1 className=" bg-black flex flex-row items-center justify-center mb-10 w-full text-4xl text-white p-4">Connect With Me</h1>
+        <ul className=' bg-black flex items-center justify-center mb-10'>
           <li>
             <Link href={"https://github.com/YATHARTH-Sriv"}>
               <Image

@@ -1,50 +1,272 @@
- "use client";
-import { HoverEffect } from "../components/ui/card-hover-effect";
+
+"use client";
+import Image from "next/image";
+import React, { useEffect, useId, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useOutsideClick } from "@/hooks/use-outside-click";
 
 export function Projects() {
+  const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
+    null
+  );
+  const id = useId();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActive(false);
+      }
+    }
+
+    if (active && typeof active === "object") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
+  useOutsideClick(ref, () => setActive(null));
+
   return (
-    <div id="projects"className="max-w-5xl mx-auto px-8">
-      <HoverEffect items={projects} />
+    <div id="projects" className="p-2 bg-black">
+      <AnimatePresence>
+        {active && typeof active === "object" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {active && typeof active === "object" ? (
+          <div className="fixed inset-0  grid place-items-center z-[100]">
+            <motion.button
+              key={`button-${active.title}-${id}`}
+              layout
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+                transition: {
+                  duration: 0.05,
+                },
+              }}
+              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              onClick={() => setActive(null)}
+            >
+              <CloseIcon />
+            </motion.button>
+            <motion.div
+              layoutId={`card-${active.title}-${id}`}
+              ref={ref}
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+            >
+              <motion.div layoutId={`image-${active.title}-${id}`}>
+                <Image
+                  src={active.src}
+                  alt={active.title}
+                  layout="responsive"
+                  width={500}
+                  height={300}
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="w-full h-80 object-cover object-top"
+                />
+              </motion.div>
+
+
+              <div>
+                <div className="flex justify-between items-start p-4">
+                  <div className="">
+                    <motion.h3
+                      layoutId={`title-${active.title}-${id}`}
+                      className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
+                    >
+                      {active.title}
+                    </motion.h3>
+                    <motion.p
+                      layoutId={`description-${active.description}-${id}`}
+                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                    >
+                      {active.description}
+                    </motion.p>
+                  </div>
+
+                  <motion.a
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    href={active.ctaLink}
+                    target="_blank"
+                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                  >
+                    {active.ctaText}
+                  </motion.a>
+                </div>
+                <div className="pt-4 relative px-4">
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                  >
+                    {typeof active.content === "function"
+                      ? active.content()
+                      : active.content}
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        ) : null}
+      </AnimatePresence>
+      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4">
+        {cards.map((card, index) => (
+          <motion.div
+            layoutId={`card-${card.title}-${id}`}
+            key={card.title}
+            onClick={() => setActive(card)}
+            className="p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+          >
+            <div className="flex gap-4 flex-col  w-full">
+              <motion.div layoutId={`image-${card.title}-${id}`}>
+                <Image
+                  src={card.src}
+                  alt={card.title}
+                  // className="h-60 w-full  rounded-lg object-cover object-top"
+                  layout="responsive"
+                  width={500}
+                  height={300}
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="w-full h-200 object-cover object-top"
+                />
+              </motion.div>
+              <div className="flex justify-center items-center flex-col">
+                <motion.h3
+                  layoutId={`title-${card.title}-${id}`}
+                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
+                >
+                  {card.title}
+                </motion.h3>
+                <motion.p
+                  layoutId={`description-${card.description}-${id}`}
+                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
+                >
+                  {card.description}
+                </motion.p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </ul>
     </div>
   );
 }
-export const projects = [
-  {
-    title: "Feedback-App",
-    description:
-      "A feedback app with authentication handled with next-authjs also comes with ai integration using OPENAI chatgpt-3.5 to suggest messages for the feedback ",
-    link: "https://feedback-app-yatharth.vercel.app/",
-  },
-  {
-    title: "LearnPDF-SAAS",
-    description:
-      "Built a SAAS project which lets users learn , understand and ask questions related to any pdf. In this project I learnt about concepts of Retrieval Augmented Generation(RAG), Embeddings and vectors",
-    link: "https://github.com/YATHARTH-Sriv/learnpdfSAAS",
-  },
-  {
-    title: "Social Media(Twitter)",
-    description:
-      "A Social Media App where users can share their opinions and photos with each other just like twitter this uses AWS S3 bucket for image storage  ",
-    link: "https://github.com/YATHARTH-Sriv/twitter",
-  },
-  {
-    title: "Blog-App",
-    description:
-      "A Blog app where users can share thier ideas through blogs with all CRUD operations also uplaod images being saved by cloudinary ",
-    link: "https://github.com/YATHARTH-Sriv/myblog",
-  },
-  {
-    title: "Music School",
-    description:
-      "A academy website where users can sign up and select courses which they want to learn , with NextJS Auth and appwrite used for database it looks great and great ui",
-    link: "https://yatharthacademy.vercel.app/",
-  },
-  {
-    title: "Redux TODO",
-    description:
-      "An everyday app for all your tasks , this TODO app uses local storage of your browser so that your progress is not lost, to understand concepts of redux toolkit and context Api this is the best projects to understand these complex concepts",
-    link: "https://yatharth-todo.vercel.app/",
-  },
-];
 
+export const CloseIcon = () => {
+  return (
+    <motion.svg
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.05,
+        },
+      }}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4 text-black"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 6l-12 12" />
+      <path d="M6 6l12 12" />
+    </motion.svg>
+  );
+};
+
+const cards = [
+  {
+    description: " ",
+    title: "Feedback-App",
+    src: "https://raw.githubusercontent.com/YATHARTH-Sriv/mywebsite/main/my-app/public/feedback.png",
+    ctaText: "Live",
+    ctaLink: "https://feedback-app-yatharth.vercel.app/",
+    content: () => {
+      return (
+        <p>
+         Get Anonymous feedbacks or messages from different users. Choose when to receve feedback or when to not. This product uses OpenAI to suggest messages to give feedback
+        </p>
+      );
+    },
+  },
+  {
+    description: "",
+    title: "Journalist AI",
+    src: "/journalsit.png",
+    ctaText: "Github",
+    ctaLink: "https://github.com/YATHARTH-Sriv/JournalistAI",
+    content: () => {
+      return (
+        <p>
+          I made a product where users can create blogs or articles just by entering a title or an image , also a chatbot service which navigates you to use the product in abetter way by providing relevant links.Also users get signed up recieve emails about the product
+        </p>
+      );
+    },
+  },
+
+  {
+    description: "",
+    title: "Twitter-sm app",
+    src: "/twitter.png",
+    ctaText: "Github",
+    ctaLink: "https://github.com/YATHARTH-Sriv/twitter",
+    content: () => {
+      return (
+        <p>
+          A Social Media App where users can share their opinions and photos with each other just like twitter, write tweets and also engage with other user's tweets. I am using AWS S3 bucket for image storage and Prisma , PostgresDB for databases.
+        </p>
+      );
+    },
+  },
+  {
+    description: "",
+    title: "BrainBusiness",
+    src: "/brain.png",
+    ctaText: "Github",
+    ctaLink: "https://github.com/YATHARTH-Sriv/Brainbase",
+    content: () => {
+      return (
+        <p>
+          Want to Automate your business small tasks, Let me help you to replace your HR Team with BrainBusiness. Manage your emails with AI , get suggestions for your business and also get a chatbot to help you with your business. 
+        </p>
+      );
+    },
+  },
+  
+];
 
