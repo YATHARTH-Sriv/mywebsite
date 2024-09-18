@@ -19,10 +19,10 @@ export function Hero() {
         {/* Core component */}
         <SparklesCore
           background="transparent"
-          minSize={0.4}
-          maxSize={1}
+          minSize={0.3}
+          maxSize={0.6}
           particleDensity={1200}
-          className="w-full h-full"
+          className=" w-full h-full"
           particleColor="#FFFFFF"
         />
 
