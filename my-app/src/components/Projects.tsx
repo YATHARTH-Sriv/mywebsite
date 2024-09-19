@@ -211,6 +211,20 @@ export const CloseIcon = () => {
 
 const cards = [
   {
+    description: "",
+    title: "JustPaid Revenue Tracker",
+    src: "/justpaid.png",
+    ctaText: "Live",
+    ctaLink: "https://justpaid-revenueai.vercel.app/",
+    content: () => {
+      return (
+        <p>
+          A Revenue Expense Tracker for buisness to generate insights from Ai. More features to be added for tracking sales as well.
+        </p>
+      );
+    },
+  },
+  {
     description: " ",
     title: "Feedback-App",
     src: "https://raw.githubusercontent.com/YATHARTH-Sriv/mywebsite/main/my-app/public/feedback.png",
@@ -234,21 +248,6 @@ const cards = [
       return (
         <p>
           I made a product where users can create blogs or articles just by entering a title or an image , also a chatbot service which navigates you to use the product in abetter way by providing relevant links.Also users get signed up recieve emails about the product
-        </p>
-      );
-    },
-  },
-
-  {
-    description: "",
-    title: "Twitter-sm app",
-    src: "/twitter.png",
-    ctaText: "Github",
-    ctaLink: "https://github.com/YATHARTH-Sriv/twitter",
-    content: () => {
-      return (
-        <p>
-          A Social Media App where users can share their opinions and photos with each other just like twitter, write tweets and also engage with other user's tweets. I am using AWS S3 bucket for image storage and Prisma , PostgresDB for databases.
         </p>
       );
     },
