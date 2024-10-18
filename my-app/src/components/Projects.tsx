@@ -212,14 +212,14 @@ export const CloseIcon = () => {
 const cards = [
   {
     description: "",
-    title: "JustPaid Revenue Tracker",
-    src: "/justpaid.png",
+    title: "Content Manager Scheduler",
+    src: "/contentmanager.png",
     ctaText: "Live",
-    ctaLink: "https://justpaid-revenueai.vercel.app/",
+    ctaLink: "https://content-manager-ai.vercel.app/",
     content: () => {
       return (
         <p>
-          A Revenue Expense Tracker for buisness to generate insights from Ai. More features to be added for tracking sales as well.
+          Generate Your Content For Twitter Linkedin  Hashnode Blogs and also post them too with the help of AI.
         </p>
       );
     },
@@ -240,20 +240,6 @@ const cards = [
   },
   {
     description: "",
-    title: "Journalist AI",
-    src: "/journalsit.png",
-    ctaText: "Github",
-    ctaLink: "https://github.com/YATHARTH-Sriv/JournalistAI",
-    content: () => {
-      return (
-        <p>
-          I made a product where users can create blogs or articles just by entering a title or an image , also a chatbot service which navigates you to use the product in abetter way by providing relevant links.Also users get signed up recieve emails about the product
-        </p>
-      );
-    },
-  },
-  {
-    description: "",
     title: "BrainBusiness",
     src: "/brain.png",
     ctaText: "Github",
@@ -262,6 +248,20 @@ const cards = [
       return (
         <p>
           Want to Automate your business small tasks, Let me help you to replace your HR Team with BrainBusiness. Manage your emails with AI , get suggestions for your business and also get a chatbot to help you with your business. 
+        </p>
+      );
+    },
+  },
+  {
+    description: "",
+    title: "JustPaid Revenue Tracker",
+    src: "/justpaid.png",
+    ctaText: "Live",
+    ctaLink: "https://justpaid-revenueai.vercel.app/",
+    content: () => {
+      return (
+        <p>
+          A Revenue Expense Tracker for buisness to generate insights from Ai. More features to be added for tracking sales as well.
         </p>
       );
     },
