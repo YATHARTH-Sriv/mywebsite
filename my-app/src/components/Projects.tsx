@@ -226,14 +226,14 @@ const cards = [
   },
   {
     description: " ",
-    title: "Feedback-App",
-    src: "https://raw.githubusercontent.com/YATHARTH-Sriv/mywebsite/main/my-app/public/feedback.png",
+    title: "ReactGen",
+    src: "/reactgen.png",
     ctaText: "Live",
-    ctaLink: "https://feedback-app-yatharth.vercel.app/",
+    ctaLink: "https://reactgen.vercel.app/",
     content: () => {
       return (
         <p>
-         Get Anonymous feedbacks or messages from different users. Choose when to receve feedback or when to not. This product uses OpenAI to suggest messages to give feedback
+         With The power of AI the Speed in which you can ship features to your application has increased to another degree, and to help you ship your frontend faster and increase your productivity ReactGen is here for your help.
         </p>
       );
     },
