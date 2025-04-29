@@ -1,31 +1,28 @@
-"use client";
-import React from "react";
-import { Menu, MenuItem } from "../components/ui/navbar-menu";
-import { cn } from "@/utils/cn";
-import Link from "next/link";
+"use client"
 
-function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = React.useState<string | null>(null);
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+
+const Navbar = () => {
+  const navItems = [
+    { href: "#about", label: "About" },
+    { href: "#web3-projects", label: "Web3" },
+    { href: "#other-projects", label: "Projects" },
+    { href: "#education", label: "Education" },
+  ]
 
   return (
-    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-30 flex justify-between items-center p-4", className)}>
-      {/* Desktop Navbar */}
-      <div className="hidden sm:flex space-x-4 text-sm">
-        <Link href="/"><MenuItem setActive={setActive} active={active} item="Home" /></Link>
-        <Link href="#about-me"><MenuItem setActive={setActive} active={active} item="About Me" /></Link>
-        <Link href="#projects"><MenuItem setActive={setActive} active={active} item="Projects" /></Link>
-        <Link href="#socials"><MenuItem setActive={setActive} active={active} item="Social" /></Link>
+    <nav className="flex justify-between items-center mb-12">
+      <div className="font-bold text-xl">YS</div>
+      <div className="flex gap-4">
+        {navItems.map((item) => (
+          <Button key={item.href} variant="ghost" size="sm" asChild>
+            <Link href={item.href}>{item.label}</Link>
+          </Button>
+        ))}
       </div>
-      
-      {/* Mobile Navbar */}
-      <div className="sm:hidden flex items-center space-x-4 text-sm">
-        <Link href="/" className="p-2 text-xs">Home</Link>
-        <Link href="#about-me" className="p-2 text-xs">About Me</Link>
-        <Link href="#projects" className="p-2 text-xs">Projects</Link>
-        <Link href="#socials" className="p-2 text-xs">Social</Link>
-      </div>
-    </div>
-  );
+    </nav>
+  )
 }
 
-export default Navbar;
+export default Navbar

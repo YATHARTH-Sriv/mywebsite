@@ -1,25 +1,26 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type React from "react"
+import "@/app/globals.css"
+import { ThemeProvider } from "./Themeprovider"
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Yatharth Srivastava",
-  description: "My portfolio",
-};
+export const metadata = {
+  title: "Yatharth - Portfolio",
+  description: "Portfolio of Yatharth Srivastava a Full Stack Web3 Dev",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className="dark bg-black" >
-      <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-      </head>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen antialiased bg-black text-white">
+        <ThemeProvider  defaultTheme="dark" enableSystem={false}>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
-  );
+  )
 }
+
+
